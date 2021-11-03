@@ -3,11 +3,12 @@ import java.util.Scanner;
 /** @author Stanislav Rakitov */
 public class Student {
 
-  private final int COSTOFCOURSE = 600;
+  private static final int COSTOFCOURSE = 600;
+  private static int id = 1000;
   private String firstName;
   private String lastName;
   private int gradeYear;
-  private int studentID;
+  private String studentID;
   private String courses;
   private int tuitionBalance;
 
@@ -26,5 +27,13 @@ public class Student {
             + "Enter Student class level: ");
     this.gradeYear = in.nextInt();
     System.out.println(firstName + " " + lastName + " " + gradeYear);
+
+    setStudentID();
+    System.out.println("Student ID: " + studentID);
+  }
+
+  private void setStudentID() {
+    id++;
+    this.studentID = String.valueOf(gradeYear) + id;
   }
 }
